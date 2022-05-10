@@ -1,0 +1,51 @@
+.about_us
+    display: flex
+    justify-content: center
+    align-items: center
+    .wrap_about
+        display: flex
+        justify-content: space-between
+        align-items: flex-start
+        .about_text
+            margin: 0
+            h2
+                margin: 40px 0 60px 0
+                span
+                    color: $accent-color
+            p
+                font-family: "Lato", sans-serif
+                font-weight: 300
+                font-size: 18px
+                line-height: 25px
+                width: 445px
+        .achievments
+            display: grid
+            grid-template-columns: repeat(2, 255px)
+            grid-auto-rows: 255px
+            grid-gap: 30px
+            margin-left: 125px
+            .achiev_item
+                background-color: #ebebeb
+                font-family: "Lato", sans-serif
+                padding: 30px 40px
+                &:hover
+                    background-color: $accent-color
+                    color: #fff
+                    a
+                        color: #fff
+                .num
+                    font-weight: 900
+                    font-size: 55px
+                    line-height: 66px
+                    text-transform: uppercase
+                    letter-spacing: 0.1em
+                .deals
+                    font-weight: 700
+                    font-size: 14px
+                    line-height: 18px
+                    margin: 30px 0 47px 0
+                a
+                    font-weight: 700
+                    font-size: 14px
+                    line-height: 17px
+                    color: $accent-color

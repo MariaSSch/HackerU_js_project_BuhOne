@@ -1,0 +1,92 @@
+.contacts
+    display: flex
+    justify-content: center
+    align-items: center
+    background-image: url("../media/contact_bg.png")
+    background-size: cover
+    background-position: center
+    .wrap_contacts
+        display: flex
+        .contact_info
+            display: flex
+            flex-direction: column
+            color: #fff
+            margin-right: 100px
+            font-family: "Lato", sans-serif
+            font-weight: 300
+            h2
+                color: #fff
+            .message
+                
+                font-size: 18px
+                line-height: 25px 
+                margin: 60px 0 80px 0
+                width: 445px
+            .connect
+                display: flex
+                justify-content: space-between
+                &>div
+                    display: flex
+                    align-items: flex-end
+                    //margin-right: 45px
+                    p+p
+                        margin-left: 16px
+                        font-size: 21px
+                        line-height: 29px
+                    .fa-mobile-screen-button
+                        width: 17px
+                        height: 30px
+                    .fa-envelope
+                        width: 30px
+                        height: 21px
+ 
+        .contact_form
+            display: flex
+            justify-content: center
+            align-items: center
+            form
+                display: flex
+                flex-direction: column
+            form > div
+                display: flex
+                margin-bottom: 35px
+                &>div
+                    width: 255px
+                    margin-right: 30px
+            form label
+                color: #fff
+                font-weight: 400
+                font-size: 16px
+                line-height: 22px
+                font-family: "Lato", sans-serif
+            form input, textarea
+                border: none
+                border-bottom: 1px solid #ffffff
+                padding: 15px 0
+                background: transparent
+                color: #bdbdbd
+                font-weight: 300
+                font-size: 21px
+                line-height: 29px
+                font-family: "Lato", sans-serif
+            form textarea
+                resize: none
+            form .field
+                display: flex
+                flex-direction: column
+            button
+                color: #fff
+                background-color: $accent-color
+                padding: 19px 40px
+                font-weight: 400
+                font-size: 18px
+                line-height: 25px
+                border: none
+                cursor: pointer
+                align-self: flex-end
+                margin-top: 15px
+                &:focus
+                    background-color: #fff
+                    color: $accent-color
+
+

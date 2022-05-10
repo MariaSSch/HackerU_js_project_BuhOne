@@ -1,0 +1,53 @@
+@import url('https://fonts.googleapis.com/css2?family=Abel&family=Merriweather&family=Open+Sans&display=swap')
+@import url('https://fonts.googleapis.com/css2?family=Abel&family=Lato&family=Merriweather&family=Open+Sans&display=swap')
+
+$accent-color: #005FA3
+*
+    padding: 0
+    margin: 0
+    box-sizing: border-box
+    .section_title
+        color: #bdbdbd
+        font-family: "Lato", sans-serif
+        font-weight: 900
+        font-size: 24px
+        line-height: 33px
+    .wrap
+        margin: 140px 0
+    h2
+        color: #333
+        font-weight: 900
+        font-size: 48px
+        line-height: 69px
+        font-family: "Merriweather", sans-serif
+    .pointer
+        display: flex
+        justify-content: space-between
+        width: 100%
+        ul
+            list-style: none
+            display: flex
+            li
+                width: 10px
+                height: 10px
+                border-radius: 50%
+                background-color: $accent-color
+                opacity: 0.4
+                cursor: pointer
+            li.active
+                opacity: 1
+            li + li
+                margin-left: 40px
+
+
+    
+
+@import "first_line"
+@import "first_screen"
+@import "our_services"
+@import "about_us"
+@import "our_clients"
+@import "reviews"
+@import "contacts"
+@import "footer"
+@import "media"

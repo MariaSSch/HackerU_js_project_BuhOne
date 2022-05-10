@@ -1,0 +1,74 @@
+.first_screen
+    display: flex
+    height: 670px
+    justify-content: center
+    align-items: center
+    background-position: center
+    background-size: cover
+    .slider_container
+        width: 57.8%
+        h2
+            font-family: 'Merriweather', serif
+            font-weight: 700
+            font-size: 48px
+            line-height: 66px
+            color: #fff
+            width: 590px
+            height: 117px
+        .presentation
+            width: 270px
+            height: 60px
+            margin-top: 80px
+            margin-bottom: 120px
+            display: flex
+            justify-content: center
+            align-items: center
+            background-color: $accent-color
+            font-family: "Lato", sans-serif
+            font-weight: 400
+            font-size: 18px
+            line-height: 25px
+            color: #fff
+        .slider_pointer
+            display: flex
+            justify-content: space-between
+            align-items: end
+            ul
+                display: flex
+                list-style: none
+                margin-right: 45%
+                li
+                    width: 10px
+                    height: 10px
+                    border-radius: 50%
+                    background-color: #fff
+                    opacity: 0.4
+                    cursor: pointer
+                li.active
+                    opacity: 1
+                li + li
+                    margin-left: 40px
+
+            .shift
+                display: flex
+                align-self: flex-end
+                position: relative
+                &>div
+                    width: 60px
+                    height: 60px
+                    display: flex
+                    justify-content: center
+                    align-items: center
+                    background-color: #fff
+                    opacity: 0.2
+                    cursor: pointer
+                    &:hover
+                        opacity: 0.4
+                    .fa-solid
+                        font-size: 15px
+                        background-color: #fff
+            
+
+
+
+
