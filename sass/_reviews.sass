@@ -2,7 +2,10 @@
     display: flex
     justify-content: center
     align-items: center
+    .section_title
+        @extend %section_title
     h2
+        @include h2_title
         margin: 40px 0 80px 0
     .review_slider
         display: flex
@@ -11,7 +14,7 @@
         align-items: center
         .review_item
             padding: 45px 95px
-            background-color: #ebebeb
+            background-color: $main-bg-color
             width: 58vw
             margin-bottom: 50px
             .comment
@@ -41,19 +44,4 @@
                         font-weight: 400
                         font-size: 14px
                         line-height: 19px
-        .shift_review
-                display: flex
-                &>div
-                    width: 60px
-                    height: 60px
-                    display: flex
-                    justify-content: center
-                    align-items: center
-                    background-color: $accent-color
-                    opacity: 0.2
-                    &:hover
-                        opacity: 1
-                    .fa-solid
-                        font-size: 15px
-                        color: #fff
                 

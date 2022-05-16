@@ -1,12 +1,15 @@
 .our_service
-    background-color: #ebebeb
+    background-color: $main-bg-color
     display: flex
     flex-direction: column
     justify-content: center
     align-items: center
     .wrap_service
         width: 58%
+        .section_title
+            @extend %section_title
         h2
+            @include h2_title
             margin: 40px 0 102px 0
         .services
             display: grid
@@ -23,6 +26,7 @@
                 transition: background-image 0.5s
                 &:hover
                     background-image: url("../media/services_bg2.png")
+                    //background-image: linear-gradient(0deg, rgba(0, 95, 163, 0.65), rgba(0, 95, 163, 0.65)), url("../media/services_bg1.png")
                 p
                     color: #ffffff
                     font-weight: 900

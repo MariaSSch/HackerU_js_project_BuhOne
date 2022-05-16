@@ -8,7 +8,10 @@
         align-items: flex-start
         .about_text
             margin: 0
+            .section_title
+                @extend %section_title
             h2
+                @include h2_title
                 margin: 40px 0 60px 0
                 span
                     color: $accent-color
@@ -25,7 +28,7 @@
             grid-gap: 30px
             margin-left: 125px
             .achiev_item
-                background-color: #ebebeb
+                background-color: $main-bg-color
                 font-family: "Lato", sans-serif
                 padding: 30px 40px
                 &:hover

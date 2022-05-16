@@ -2,24 +2,28 @@
 @import url('https://fonts.googleapis.com/css2?family=Abel&family=Lato&family=Merriweather&family=Open+Sans&display=swap')
 
 $accent-color: #005FA3
+$main-bg-color: #ebebeb
+
+%section_title
+    color: #bdbdbd
+    font-family: "Lato", sans-serif
+    font-weight: 900
+    font-size: 24px
+    line-height: 33px
+
+@mixin h2_title($theme: #333)
+    color: $theme
+    font-weight: 900
+    font-size: 48px
+    line-height: 69px
+    font-family: "Merriweather", sans-serif
+
 *
     padding: 0
     margin: 0
     box-sizing: border-box
-    .section_title
-        color: #bdbdbd
-        font-family: "Lato", sans-serif
-        font-weight: 900
-        font-size: 24px
-        line-height: 33px
     .wrap
         margin: 140px 0
-    h2
-        color: #333
-        font-weight: 900
-        font-size: 48px
-        line-height: 69px
-        font-family: "Merriweather", sans-serif
     .pointer
         display: flex
         justify-content: space-between
@@ -38,6 +42,22 @@ $accent-color: #005FA3
                 opacity: 1
             li + li
                 margin-left: 40px
+        .shift_block
+            display: flex
+            &>div
+                width: 60px
+                height: 60px
+                display: flex
+                justify-content: center
+                align-items: center
+                background-color: $accent-color
+                opacity: 0.2
+                cursor: pointer
+                &:hover
+                    opacity: 1
+                p
+                    font-size: 15px
+                    color: #fff
 
 
     

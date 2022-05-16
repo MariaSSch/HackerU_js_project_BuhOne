@@ -1,14 +1,19 @@
 const clients = document.querySelector(".clients");
 const sliderClients = document.querySelector(".slider_clients");
 
+
 const ulElemClients            = document.querySelector(".ul_clients");
 const shiftPrevClients         = document.querySelector(".shift_prev_clients");
 const shiftNextClients         = document.querySelector(".shift_next_clients");
 
 const mediaPathClients = "media/";
 const clientLogoList = ["client1.png", "client2.png", "client3.png", "client4.png"];
+
 let clientIndex = 0;
-let clientStart = false;//при первой загрузке страницы элементы слайдера не выделяются
+let numberOfClients = 4;
+let sliderStepSize;
+let sliderWidth;
+let clientStart = false;//при первой загрузке элементы слайдера не выделяются
 
 const clientsInfoList = [
     {
@@ -42,51 +47,67 @@ ulElemClients.append(...clientsInfoList.map(() => {
 );
 
 clients.append(...clientLogoList.map(logo => {
-    const divElem = document.createElement("div");
-    divElem.classList.add("client_logo");
+    const clientElem = document.createElement("div");
+    clientElem.classList.add("client_logo");
     const imgElem = document.createElement("img");
     imgElem.src = `${mediaPathClients + logo}`;
 
-    const clientInfo = document.createElement("p");
     let logoIndex = clientLogoList.indexOf(logo);
+
+    const clientInfo = document.createElement("p"); 
     clientInfo.innerText = clientsInfoList[logoIndex].years;
-    divElem.append(imgElem, clientInfo);
+    clientElem.append(imgElem, clientInfo);
+
     
-    return divElem;
+    return clientElem;
 }))
 
+
 const clientsList = document.querySelectorAll(".client_logo"); 
+const styleForClients = clients.childNodes;
 
-function renderC() {
+function slide() {
+    clients.style.left = -clientIndex * sliderStepSize + "px";
 
-    if(document.documentElement.clientWidth < 1300) {
-        const window_width = sliderClients.offsetWidth;
-        clients.style.right = window_width * clientIndex + "px";
-        clientsList.forEach(client => client.classList.remove("current_client"));
-
-    } else {
-
-        clientsList.forEach(client => client.classList.remove("current_client"));
-
-        if (clientStart){  //при первой загрузке страницы элементы слайдера не выделяются
-            clientsList[clientIndex].classList.add("current_client");
-        }
-        clientStart = true;
-
-
-        window.addEventListener("resize", e => {
-            if (document.documentElement.clientWidth < 1300) {
-                clientsList[clientIndex].classList.remove("current_client");
-        
-            }
-        });
-    }
     const liList = document.querySelectorAll(".ul_clients li");
     liList.forEach(dot => dot.classList.remove("active"));
     liList[clientIndex].classList.add("active");
 
+    if(clientStart) {
+    styleForClients.forEach(item => item.style.backgroundColor = "transparent");
+    styleForClients[clientIndex].style.backgroundColor = "white";
+    }
+    clientStart = true;
+
     
 }
+
+const renderC = () => {
+
+    if(window.innerWidth < 1000) {
+        numberOfClients = 1;
+    } else if(window.innerWidth < 1400) {
+        numberOfClients = 2;
+    } else if(window.innerWidth < 1700) {
+        numberOfClients = 3;
+       clientsList.forEach(client => client.classList.remove("current_client"));
+
+    } else {
+        numberOfClients = 4;
+    }
+
+    sliderWidth = sliderClients.offsetWidth;
+    sliderStepSize = sliderWidth/numberOfClients;
+
+    clientsList.forEach(client => client.style.width = sliderStepSize + "px");
+    clients.style.width = clientsList.length * sliderStepSize + "px";
+
+        slide();
+
+
+
+}
+renderC();
 
 shiftPrevClients.addEventListener("click", ()=>{
     if(clientIndex > 0) {
@@ -94,8 +115,7 @@ shiftPrevClients.addEventListener("click", ()=>{
     } else {
         clientIndex = clientsList.length - 1;
     }
-
-    renderC();
+    slide();
 });
 
 shiftNextClients.addEventListener("click", () => {
@@ -104,7 +124,15 @@ shiftNextClients.addEventListener("click", () => {
     } else {
         clientIndex = 0;
     }
-    renderC();
+    slide();
 });
 
-renderC();
+
+
+window.addEventListener("resize", renderC);
+window.addEventListener("scroll", () => {
+    if((clients.getBoundingClientRect().top > window.innerHeight) 
+    || (clients.getBoundingClientRect().bottom < 0)) {
+        styleForClients.forEach(item => item.style.backgroundColor = "transparent");
+    }
+})

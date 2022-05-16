@@ -5,7 +5,8 @@
     align-items: center
     background-position: center
     background-size: cover
-    .slider_container
+    transition: background-image 0.5s
+    .pointer_container
         width: 57.8%
         h2
             font-family: 'Merriweather', serif
@@ -29,45 +30,20 @@
             font-size: 18px
             line-height: 25px
             color: #fff
-        .slider_pointer
-            display: flex
-            justify-content: space-between
+        .pointer
             align-items: end
             ul
-                display: flex
-                list-style: none
                 margin-right: 45%
                 li
-                    width: 10px
-                    height: 10px
-                    border-radius: 50%
                     background-color: #fff
-                    opacity: 0.4
-                    cursor: pointer
                 li.active
                     opacity: 1
-                li + li
-                    margin-left: 40px
-
-            .shift
+            .shift_block
                 display: flex
-                align-self: flex-end
-                position: relative
                 &>div
-                    width: 60px
-                    height: 60px
-                    display: flex
-                    justify-content: center
-                    align-items: center
                     background-color: #fff
-                    opacity: 0.2
-                    cursor: pointer
                     &:hover
                         opacity: 0.4
-                    .fa-solid
-                        font-size: 15px
-                        background-color: #fff
-            
 
 
 

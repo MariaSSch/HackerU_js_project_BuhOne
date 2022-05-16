@@ -31,6 +31,7 @@ ulElem.append(...imgList.map((_, index) => {
 })
 );
 
+
 function render() {
     firstScreen.style.backgroundImage = `url("${mediaPath + imgList[imgIndex]}")`;
     h2Title.innerText = serviceList[imgIndex];

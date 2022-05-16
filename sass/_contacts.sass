@@ -15,7 +15,7 @@
             font-family: "Lato", sans-serif
             font-weight: 300
             h2
-                color: #fff
+                @include h2_title($theme: #fff)
             .message
                 
                 font-size: 18px
@@ -28,7 +28,6 @@
                 &>div
                     display: flex
                     align-items: flex-end
-                    //margin-right: 45px
                     p+p
                         margin-left: 16px
                         font-size: 21px

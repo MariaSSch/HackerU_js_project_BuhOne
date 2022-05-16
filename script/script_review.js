@@ -52,11 +52,12 @@ ulElemReview.append(...reviewList.map((_, index) => {
 );
 
 function renderR() {
-    personAvatar.style.backgroundImage = `url("${mediaPathAvatar + reviewList[reviewIndex].avatar}")`;
-    comment.innerText = reviewList[reviewIndex].review;
-    personName.innerText = reviewList[reviewIndex].name;
-    personPosition.innerText = reviewList[reviewIndex].position;
 
+    let {name, avatar, position, review} = reviewList[reviewIndex];
+    personAvatar.style.backgroundImage = `url("${mediaPathAvatar + avatar}")`;
+    comment.innerText = review;
+    personName.innerText = name;
+    personPosition.innerText = position;
 
     const liList = document.querySelectorAll(".ul_review li");
     liList.forEach(dot => dot.classList.remove("active"));

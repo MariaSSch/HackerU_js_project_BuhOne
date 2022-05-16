@@ -1,26 +1,20 @@
 @import url("https://fonts.googleapis.com/css2?family=Abel&family=Merriweather&family=Open+Sans&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Abel&family=Lato&family=Merriweather&family=Open+Sans&display=swap");
-* {
-  padding: 0;
-  margin: 0;
-  box-sizing: border-box;
-}
-* .section_title {
+.reviews .section_title, .our_clients .section_title, .about_us .wrap_about .about_text .section_title, .our_service .wrap_service .section_title {
   color: #bdbdbd;
   font-family: "Lato", sans-serif;
   font-weight: 900;
   font-size: 24px;
   line-height: 33px;
 }
+
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
 * .wrap {
   margin: 140px 0;
-}
-* h2 {
-  color: #333;
-  font-weight: 900;
-  font-size: 48px;
-  line-height: 69px;
-  font-family: "Merriweather", sans-serif;
 }
 * .pointer {
   display: flex;
@@ -45,11 +39,32 @@
 * .pointer ul li + li {
   margin-left: 40px;
 }
+* .pointer .shift_block {
+  display: flex;
+}
+* .pointer .shift_block > div {
+  width: 60px;
+  height: 60px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #005FA3;
+  opacity: 0.2;
+  cursor: pointer;
+}
+* .pointer .shift_block > div:hover {
+  opacity: 1;
+}
+* .pointer .shift_block > div p {
+  font-size: 15px;
+  color: #fff;
+}
 
 .first_line {
   display: flex;
   justify-content: space-evenly;
   align-items: center;
+  background-color: #e5e5e5;
 }
 .first_line .logo {
   display: flex;
@@ -114,11 +129,12 @@
   align-items: center;
   background-position: center;
   background-size: cover;
+  transition: background-image 0.5s;
 }
-.first_screen .slider_container {
+.first_screen .pointer_container {
   width: 57.8%;
 }
-.first_screen .slider_container h2 {
+.first_screen .pointer_container h2 {
   font-family: "Merriweather", serif;
   font-weight: 700;
   font-size: 48px;
@@ -127,7 +143,7 @@
   width: 590px;
   height: 117px;
 }
-.first_screen .slider_container .presentation {
+.first_screen .pointer_container .presentation {
   width: 270px;
   height: 60px;
   margin-top: 80px;
@@ -142,51 +158,26 @@
   line-height: 25px;
   color: #fff;
 }
-.first_screen .slider_container .slider_pointer {
-  display: flex;
-  justify-content: space-between;
+.first_screen .pointer_container .pointer {
   align-items: end;
 }
-.first_screen .slider_container .slider_pointer ul {
-  display: flex;
-  list-style: none;
+.first_screen .pointer_container .pointer ul {
   margin-right: 45%;
 }
-.first_screen .slider_container .slider_pointer ul li {
-  width: 10px;
-  height: 10px;
-  border-radius: 50%;
+.first_screen .pointer_container .pointer ul li {
   background-color: #fff;
-  opacity: 0.4;
-  cursor: pointer;
 }
-.first_screen .slider_container .slider_pointer ul li.active {
+.first_screen .pointer_container .pointer ul li.active {
   opacity: 1;
 }
-.first_screen .slider_container .slider_pointer ul li + li {
-  margin-left: 40px;
-}
-.first_screen .slider_container .slider_pointer .shift {
+.first_screen .pointer_container .pointer .shift_block {
   display: flex;
-  align-self: flex-end;
-  position: relative;
 }
-.first_screen .slider_container .slider_pointer .shift > div {
-  width: 60px;
-  height: 60px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
+.first_screen .pointer_container .pointer .shift_block > div {
   background-color: #fff;
-  opacity: 0.2;
-  cursor: pointer;
 }
-.first_screen .slider_container .slider_pointer .shift > div:hover {
+.first_screen .pointer_container .pointer .shift_block > div:hover {
   opacity: 0.4;
-}
-.first_screen .slider_container .slider_pointer .shift > div .fa-solid {
-  font-size: 15px;
-  background-color: #fff;
 }
 
 .our_service {
@@ -200,6 +191,11 @@
   width: 58%;
 }
 .our_service .wrap_service h2 {
+  color: #333;
+  font-weight: 900;
+  font-size: 48px;
+  line-height: 69px;
+  font-family: "Merriweather", sans-serif;
   margin: 40px 0 102px 0;
 }
 .our_service .wrap_service .services {
@@ -242,6 +238,11 @@
   margin: 0;
 }
 .about_us .wrap_about .about_text h2 {
+  color: #333;
+  font-weight: 900;
+  font-size: 48px;
+  line-height: 69px;
+  font-family: "Merriweather", sans-serif;
   margin: 40px 0 60px 0;
 }
 .about_us .wrap_about .about_text h2 span {
@@ -300,61 +301,43 @@
   background-color: #ebebeb;
 }
 .our_clients h2 {
+  color: #333;
+  font-weight: 900;
+  font-size: 48px;
+  line-height: 69px;
+  font-family: "Merriweather", sans-serif;
   margin: 40px 0 80px 0;
 }
 .our_clients .slider_clients {
   display: flex;
   flex-direction: column;
   justify-content: center;
-  align-items: center;
+  align-items: flex-start;
+  overflow: hidden;
+  width: 60vw;
 }
 .our_clients .slider_clients .clients {
   display: flex;
   margin-bottom: 30px;
+  position: relative;
+  left: 0;
+  transition: left 0.5s;
 }
-.our_clients .slider_clients .clients div + div {
-  margin-left: 30px;
+.our_clients .slider_clients .clients > div {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.our_clients .slider_clients .clients > div img {
+  margin: 0 5px;
 }
 .our_clients .slider_clients .clients > div p {
-  display: none;
-}
-.our_clients .slider_clients .clients .current_client {
-  position: relative;
-}
-.our_clients .slider_clients .clients .current_client img {
-  transform: scale(1.3);
-  background-color: white;
-}
-.our_clients .slider_clients .clients .current_client p {
   display: block;
-  position: absolute;
-  top: 100px;
-  left: 10px;
-  width: 100%;
-  font-family: "Lato";
-  font-weight: 700;
-  font-size: 16px;
-  color: #7f7f7f;
+  text-align: center;
 }
 .our_clients .slider_clients .shift_clients {
   align-self: flex-end;
-  display: flex;
-}
-.our_clients .slider_clients .shift_clients > div {
-  width: 60px;
-  height: 60px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  background-color: #005FA3;
-  opacity: 0.2;
-}
-.our_clients .slider_clients .shift_clients > div:hover {
-  opacity: 1;
-}
-.our_clients .slider_clients .shift_clients > div .fa-solid {
-  font-size: 15px;
-  color: #fff;
 }
 
 .reviews {
@@ -363,6 +346,11 @@
   align-items: center;
 }
 .reviews h2 {
+  color: #333;
+  font-weight: 900;
+  font-size: 48px;
+  line-height: 69px;
+  font-family: "Merriweather", sans-serif;
   margin: 40px 0 80px 0;
 }
 .reviews .review_slider {
@@ -410,25 +398,6 @@
   font-size: 14px;
   line-height: 19px;
 }
-.reviews .review_slider .shift_review {
-  display: flex;
-}
-.reviews .review_slider .shift_review > div {
-  width: 60px;
-  height: 60px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  background-color: #005FA3;
-  opacity: 0.2;
-}
-.reviews .review_slider .shift_review > div:hover {
-  opacity: 1;
-}
-.reviews .review_slider .shift_review > div .fa-solid {
-  font-size: 15px;
-  color: #fff;
-}
 
 .contacts {
   display: flex;
@@ -451,6 +420,10 @@
 }
 .contacts .wrap_contacts .contact_info h2 {
   color: #fff;
+  font-weight: 900;
+  font-size: 48px;
+  line-height: 69px;
+  font-family: "Merriweather", sans-serif;
 }
 .contacts .wrap_contacts .contact_info .message {
   font-size: 18px;
@@ -557,7 +530,7 @@ footer {
     position: absolute;
     top: -100vh;
     right: 0;
-    background-color: #ebebeb;
+    background-color: #e5e5e5;
     padding: 10px;
     z-index: 10;
   }
@@ -581,39 +554,6 @@ footer {
   .about_us .wrap_about .achievments {
     margin-left: 0;
     margin-top: 40px;
-  }
-
-  .wrap_clients {
-    width: 481px;
-    position: relative;
-    display: block;
-  }
-  .wrap_clients .slider_clients {
-    width: 100%;
-    overflow: hidden;
-    display: block;
-  }
-  .wrap_clients .slider_clients .clients {
-    width: 2405px;
-    display: grid;
-    grid-template-columns: repeat(4, 481px);
-    position: relative;
-    right: 0px;
-    transition: right 0.5s;
-  }
-  .wrap_clients .slider_clients .clients div + div {
-    margin: 0;
-  }
-  .wrap_clients .slider_clients .clients > div img {
-    width: 481px;
-    height: 196px;
-  }
-  .wrap_clients .slider_clients .clients > div p {
-    display: block;
-    font-family: "Lato";
-    font-weight: 700;
-    font-size: 16px;
-    color: #7f7f7f;
   }
 
   .reviews .review_slider .review_item {
